@@ -26,7 +26,7 @@ function renderUi(array) {
 		// console.log(item);
 		elCard.innerHTML = `
             <div class="secondary bg-dark bg-opacity-10 rounded-1 p-0 d-flex align-items-center justify-content-center">
-               <img src="${item.volumeInfo.imageLinks ? `${item.volumeInfo.imageLinks.thumbnail}` : "Ma'lumot topilmadi"}" width="200px" height="200px" alt="element img" class="element-img">
+               <img src="${item.volumeInfo.imageLinks ? `${item.volumeInfo.imageLinks.thumbnail}` : "Ma'lumot topilmadi"}" width="200px" height="200px" alt="book img" class="element-img">
              </div>
             <div class="card-texts mt-3">
                <h2 class="card-title m-1 fs-6 overflow-hidden" title="${item.volumeInfo.title}">${item.volumeInfo.title ? `${item.volumeInfo.title}` :"Ma'lumot topilmadi"}</h2>
