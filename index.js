@@ -13,7 +13,9 @@ fetch("https://www.googleapis.com/books/v1/volumes?q=search+terms&maxResults=40"
 		// console.log(data);
 		renderUi(products);
 	});
-// console.log(products);
+
+    let elText=$(".show-items")
+    let i=0;
 
 function renderUi(array) {
 	array.forEach((item) => {
@@ -38,9 +40,24 @@ function renderUi(array) {
 
                  `;
 		elList.appendChild(elCard);
+		i++
+
 	});
+	elText.innerHTML =`Showing ${i} Result(s)`;
+
 	// search(array);
 }
+
+
+// products.forEach(item => {
+console.log(elText);
+console.log(products);
+// })
+
+
+
+
+
 
 /*-----------------------------------------------------------------------Bookmark------------- */
 
@@ -146,33 +163,51 @@ let elSearch=$(".input-group");
 
 // console.log(elSearch);
 
-elSearch.addEventListener('keyup', evt=>{
+// elSearch.addEventListener('keyup', evt=>{
+// 	evt.preventDefault();
 
-	let value = evt.target.value;
-// console.log(value);
-if(value==""){
-	renderUi(products);
-}
-else{
+// 	let value = evt.target.value;
+// // console.log(value);
+// if(value==""){
+// 	renderUi(products);
+// }
+// else{
 
-	let BASE_URL="https://www.googleapis.com/books/v1/volumes"
-let url="?q=search+terms&maxResults=40"
-fetch(BASE_URL+url)
-	.then((res) => res.json())
-	.then((data) => {
-		products = data.items;
-	});
-	// products.forEach(item => {
-		// console.log(item.volumeInfo.title);
-		let searchProducts=products.filter(item=>{
-			return item.volumeInfo.title.toLoverCase()==value.toLoverCase()
-		})[0]
-	console.log(searchProducts);
-	// })
+// 	let BASE_URL="https://www.googleapis.com/books/v1/volumes"
+// let url="?q=search+terms&maxResults=40"
+// fetch(BASE_URL+url)
+// 	.then((res) => res.json())
+// 	.then((data) => {
+// 		products = data.items;
+// 	});
+// 	// products.forEach(item => {
+// 		// console.log(item.volumeInfo.title);
+// 		let searchProducts=products.filter(item=>{
+// 			return item.volumeInfo.title==value
+// 		})[0]
+// 	console.log(searchProducts);
+// 	// })
 
 
 
-}
+// }
 
 	
-})
+// })
+
+
+search(products)
+let arrayy=[]
+function search(array) {
+	elSearch.addEventListener("keyup", (evt) => {
+		arrayy=products;
+		evt.preventDefault();
+		let value = evt.target.value;
+
+		elList.innerHTML = "";
+		const newItem = arrayy.filter((item) => {
+			return item.volumeInfo.title.includes(value);
+		});
+		renderUi(newItem);
+	});
+}
