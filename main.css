@@ -5,12 +5,11 @@
 }
 body{
     background-color: #E5E5E5 !important;
-
 }
 
 
 .container {
-    width: 1200px !important;
+    width: 1280px !important;
     padding:0 40px 0 25px !important;
     background-color: #fff !important;
 }
@@ -38,12 +37,52 @@ body{
     font-weight: 500;
 }
 
+.main-left{
+    width: 100%;
+position: sticky ! important;
+    top: 0 !important;
+   
+}
+
 .main-right{
     background-color: #f9f9f9 !important;
+}
+
+.list{
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(282px , 1fr)) !important;
+    gap: 10px;
+    padding: 0;
 }
 
 
 .card{
     padding: 13px 15px 13px 18px;
-    width: 282px;
+    width: 282px !important;
+}
+.card-title{
+    width: 100% !important;
+    height: 40px !important;
+}
+.card-text{
+    width: 100% !important;
+    height: 45px !important;
+}
+
+.wrapper{
+    width: 300px !important;
+}
+
+.bookmarked-title{
+    font-size: 12px ! important;
+}
+
+
+.modal-right{
+    width:35% !important ;
+}
+
+.more-info{
+    padding: 20px !important;
+    
 }
