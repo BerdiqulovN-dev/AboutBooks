@@ -12,6 +12,7 @@ fetch("https://www.googleapis.com/books/v1/volumes?q=search+terms&maxResults=40"
 		// console.log(products);
 		// console.log(data);
 		renderUi(products);
+
 	});
 
     let elText=$(".show-items")
@@ -40,10 +41,11 @@ function renderUi(array) {
 
                  `;
 		elList.appendChild(elCard);
-		i++
 
-	});
+		i++;
 	elText.innerHTML =`Showing ${i} Result(s)`;
+	});
+	i=0;
 
 	// search(array);
 }
@@ -203,11 +205,17 @@ function search(array) {
 		arrayy=products;
 		evt.preventDefault();
 		let value = evt.target.value;
-
+   if(value==""){
+		renderUi(products);
+    }
+	else{
 		elList.innerHTML = "";
 		const newItem = arrayy.filter((item) => {
 			return item.volumeInfo.title.includes(value);
 		});
 		renderUi(newItem);
+	}
+		
 	});
+
 }
